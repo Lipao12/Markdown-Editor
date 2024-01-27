@@ -5,22 +5,36 @@
     --text-color: #f0f0f0;
   }
 
-  .preview-container{
-    width: 50%;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--secondary-color);
+  .header header{
     color: var(--text-color);
-    overflow: auto;
-    float: right;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+
+.icon{
+  cursor: pointer;
+}
+
+.preview-container{
+  width: 50%; 
+  max-width: 21cm;
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: var(--secondary-color); 
+  color: var(--text-color); 
+  box-sizing: border-box; 
+  overflow: auto; 
+  height: 100vh; 
+  font-size: 16px;
 }
 
 .editor-container {
   width: 50%;
   height: 100vh;
   float: left;
-  padding: 10px 0;
+  padding: 10px 10px;
 }
 
   .text-editor {

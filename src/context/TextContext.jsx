@@ -5,7 +5,7 @@ export const textContext = createContext(null);
 
 const TextContextProvider = (props) =>{
     const [textRaw, setTextRaw] = useState(null);
-
+    
     const rewriteTextRaw = (text) => {
         setTextRaw(text);
     }
