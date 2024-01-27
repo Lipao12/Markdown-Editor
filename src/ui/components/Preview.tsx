@@ -23,16 +23,13 @@ A table:
 | - | - |
 `
     return (
-        <div className='preview-container'>
-            <header className='preview-header'>
-                <h2>Preview</h2>
-            </header>
-            <div className='preview-txt'>
+        <>
+            <div className='preview-container'>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {textRaw ? textRaw : markdown}
                 </ReactMarkdown >
             </div>
-        </div>
+        </>
     )
 }
 

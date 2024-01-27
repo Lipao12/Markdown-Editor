@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const textContext = createContext(null);
 
@@ -11,6 +12,9 @@ const TextContextProvider = (props) =>{
 
     const saveDatabase = (text) => {
         // fazer um post e salvar no banco de dados
+        setTimeout(() => {
+            toast.success('Texto salvo no banco de dados com sucesso!');
+        }, 1000);
     }
 
     const contextValue = { 

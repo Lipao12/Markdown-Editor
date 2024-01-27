@@ -1,0 +1,27 @@
+# Título do Documento
+
+Este é um texto simples em **Markdown**. Aqui estão algumas formatações básicas:
+
+## Listas
+
+- Item 1
+- Item 2
+- Item 3
+
+## Links
+
+[Visite o site do Markdown](https://www.markdownguide.org/)
+
+## Imagens
+
+![Logo do Markdown](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png)
+
+## Código
+
+Você também pode incluir blocos de código:
+
+```python
+def hello_world():
+    print("Hello, world!")
+
+hello_world()
