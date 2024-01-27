@@ -17,16 +17,67 @@
   cursor: pointer;
 }
 
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-text {
+  position: absolute;
+  top: calc(100% + 5px);
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white; 
+  padding: 5px; 
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  pointer-events: none; 
+  white-space: nowrap;
+}
+
+.tooltip-container:hover .tooltip-text {
+  opacity: 1;
+}
+
+.tooltip-text.download-button{
+  left: calc(50% - 8px);
+}
+.tooltip-text.sidebar-button{
+  left: calc(50% + 8px);
+}
+
+.title-file{
+  display: flex;
+  flex-direction: row;
+}
+
+.title-file h4{
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+}
+
+.edit-title{
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.title-file:hover .edit-title {
+  opacity: 1;
+}
+
 .preview-container{
   width: 50%; 
   max-width: 21cm;
-  margin: 0 auto; 
+  height: 100vh; 
   padding: 20px; 
   background-color: var(--secondary-color); 
   color: var(--text-color); 
   box-sizing: border-box; 
   overflow: auto; 
-  height: 100vh; 
+  float: right;
   font-size: 16px;
 }
 
@@ -50,7 +101,67 @@
     resize: none;
     padding: 10px;
   }
-  
+
+  .sidebar {
+    width: 200px; 
+    height: 100vh;
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hide-sidebar {
+    transform: translateX(-200px); /* move a barra lateral para fora da tela */
+}
+
+.sidebar-header {
+  background-color: #222222;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #444;
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links li {
+    padding: 8px 0;
+}
+
+.links li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.links li a:hover {
+    background-color: #555;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-button:hover {
+  color: #ccc;
+}
+
   @media (max-width: 768px) {
     .editor-container, .preview-container {
         width: 100%;
