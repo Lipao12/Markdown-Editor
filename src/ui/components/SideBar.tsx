@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { IoClose } from 'react-icons/io5';
+import { textContext } from '../../context/TextContext';
 import '../style/style.css';
-import texts from './textos_test.jsx';
 
 const SideBar = () => {
-    const [showSidebar, setShowSidebar] = useState(true);
+    //const [showSidebar, setShowSidebar] = useState(true);
+    const {showSidebar, changeSidebarState, txts, selectText} = useContext(textContext);
 
     const toggleSidebar = () => {
-        setShowSidebar(!showSidebar);
+        changeSidebarState();
     };
+
+    const handleItemClick = (textId) => {
+        selectText(textId);
+    }
 
     return (
         <div>
@@ -20,8 +25,8 @@ const SideBar = () => {
                     </button>
                 </div>
                 <ul className='links'>
-                    {texts.map((text) => {
-                        return <li key={text.id}><a>{text.title}</a></li>;
+                    {txts.map((text) => {3
+                        return <li key={text.id}><a onClick={() => handleItemClick(text.id)}>{text.title}</a></li>;
                     })}
                 </ul>
             </aside>

@@ -52,19 +52,35 @@
   flex-direction: row;
 }
 
-.title-file h4{
+.input-edit {
+  border: none;
+  background-color: transparent;
+  color: inherit; /* Isso faz com que o texto dentro do input tenha a mesma cor do texto do elemento pai */
+  font-size: inherit;
+  font-weight: inherit; 
+  font-family: inherit; 
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   margin-right: 15px;
+  outline: none;
 }
 
-.edit-title{
+.input-edit.show-edit{
+  border-bottom: 2px solid #333;
+}
+
+.icon-edit-title{
   opacity: 0;
   transition: opacity 0.3s ease;
   cursor: pointer;
 }
 
-.title-file:hover .edit-title {
+.title-file:hover .icon-edit-title {
+  opacity: 1;
+}
+
+.icon-edit-title.show-icon{
   opacity: 1;
 }
 

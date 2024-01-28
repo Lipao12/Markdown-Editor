@@ -8,9 +8,14 @@ const Editor = () => {
     const [textValue, setTextValue] = useState('');
     const { textRaw, rewriteTextRaw, saveDatabase } = useContext(textContext);
 
+    useEffect(() => {
+        setTextValue(textRaw || ''); // Define o valor inicial do textarea com base no textoRaw
+    }, [textRaw]);
+
     const handleChange = (event) => {
-        setTextValue(event.target.value);
-        rewriteTextRaw(event.target.value);
+        const newTextValue = event.target.value;
+        setTextValue(newTextValue);
+        rewriteTextRaw(newTextValue);
     };
 
     const handleKeyDown = (event) => {
@@ -64,7 +69,7 @@ const Editor = () => {
             <input // possibilita que seja possível escolher um arquivo do computador
                 id="fileInput"
                 type="file"
-                style={{ display: 'none' }} // Mantém oculto
+                style={{ display: 'none' }} 
                 onChange={selectFile}
             />
             <ToastContainer />

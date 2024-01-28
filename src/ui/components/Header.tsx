@@ -1,13 +1,27 @@
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CgMenu, CgSoftwareDownload } from "react-icons/cg";
 import { FiEdit2 } from "react-icons/fi";
 import { textContext } from '../../context/TextContext';
 import '../style/style.css';
 
 const Header = () => {
-    const { textRaw } = useContext(textContext);
+    const { textRaw, changeSidebarState, txts} = useContext(textContext);
+    const [edit, setEdit] = useState(false);
+    const [inputValue, setInputValue] = useState("Novo Arquivo");
+
+    const handleShowSidebar = () => {
+        changeSidebarState();
+    }
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value); // Atualiza o valor do input conforme o usuário digita
+    }
+
+    const handleEditChange = () => {
+        setEdit(!edit);
+    }
 
     const handleDownloadPDF = () => {
         const previewContainer = document.getElementById('preview-container');
@@ -39,13 +53,25 @@ const Header = () => {
         <div className="header">
             <header>
                 <div className="tooltip-container">
-                    <CgMenu className="icon"/>
+                    <CgMenu className="icon" onClick={handleShowSidebar}/>
                     <span className="tooltip-text sidebar-button">Side Bar</span>
                 </div>
                 
                 <div className='title-file'>
-                    <h4>Novo Arquivo</h4>
-                    <FiEdit2 className='edit-title'/>
+                {edit ? (
+                        <input 
+                            type="text" 
+                            value={inputValue} 
+                            onChange={handleInputChange} 
+                            autoFocus={true} 
+                            className='input-edit show-edit'
+                        />
+                    ) : (
+                        <h4 className='input-edit'>
+                            {inputValue}
+                        </h4>
+                    )}
+                    <FiEdit2 className={`icon-edit-title ${edit ? 'show-icon' : ''}`} onClick={handleEditChange}/>
                 </div>
                 
 
