@@ -1,31 +1,43 @@
-# React + TypeScript + Vite
+# Editor de Texto Markdown
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao Editor de Texto Markdown! Este é um aplicativo da web que permite aos usuários criar e editar documentos usando a linguagem de marcação Markdown.
 
-Currently, two official plugins are available:
+**Obs.: Projeto criado por um iniciante em desenvolvimento web.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades Principais
 
-## Expanding the ESLint configuration
+- **Edição em Tempo Real**: Edite seus documentos Markdown de forma rápida e fácil diretamente no navegador.
+- **Pré-visualização em Tempo Real**: Veja como seu documento será renderizado em HTML enquanto você o edita.
+- **Exportação**: Exporte seus documentos para Markdown puro.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Como Usar
 
-- Configure the top-level `parserOptions` property like this:
+1. **Crie um Documento**: Clique no botão "Novo Documento" para criar um novo documento em branco.
+2. **Edite o Documento**: Use a área de edição para digitar seu texto em Markdown.
+3. **Pré-visualize**: Clique na aba "Pré-visualizar" para ver como seu documento será renderizado em HTML.
+4. **Exporte**: Quando estiver satisfeito com seu documento, você pode exportá-lo para HTML ou Markdown.
+5. **Salve**: Seu documento é salvo automaticamente enquanto você trabalha nele.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Instalação Local
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Markdown-Editor
+Se você deseja executar o Editor de Texto Markdown localmente, siga estas instruções:
+
+1. Clone este repositório:
+
+   ```
+   git clone https://github.com/Lipao12/Markdown-Editor.git
+   ```
+
+2. Navegue até o diretório do projeto:
+
+   ```
+   cd Markdown-Editor
+   ```
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você tiver sugestões de novos recursos, correções de bugs ou melhorias no código, sinta-se à vontade para enviar uma solicitação pull.
+
+## Autor
+
+- [Filipe](https://github.com/Lipao12)
