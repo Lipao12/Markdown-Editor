@@ -1,18 +1,27 @@
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { useContext, useState } from 'react';
-import { CgMenu, CgSoftwareDownload } from "react-icons/cg";
+import { useContext, useEffect, useState } from 'react';
+import { CgMenu, CgSoftwareDownload, CgSoftwareUpload } from "react-icons/cg";
 import { FiEdit2 } from "react-icons/fi";
+import { HiOutlineSave } from "react-icons/hi";
 import { textContext } from '../../context/TextContext';
 import '../style/style.css';
 
 const Header = () => {
-    const { textRaw, changeSidebarState, txts} = useContext(textContext);
+    const { objTextRaw, changeSidebarState, txts, rewriteTextRaw, saveDatabase} = useContext(textContext);
     const [edit, setEdit] = useState(false);
-    const [inputValue, setInputValue] = useState("Novo Arquivo");
+    const [inputValue, setInputValue] = useState(objTextRaw===null?"Novo Arquivo":objTextRaw.title);
+
+    useEffect(() => {
+        setInputValue(objTextRaw===null?"Novo Arquivo":objTextRaw.title);
+    }, [objTextRaw]);
 
     const handleShowSidebar = () => {
-        changeSidebarState();
+        changeSidebarState(true);
+    }
+
+    const handleSaveFile = () => {
+        saveDatabase(objTextRaw);
     }
 
     const handleInputChange = (event) => {
@@ -21,6 +30,11 @@ const Header = () => {
 
     const handleEditChange = () => {
         setEdit(!edit);
+        
+        if(edit){
+            objTextRaw.title = inputValue;
+            rewriteTextRaw(objTextRaw);
+        }
     }
 
     const handleDownloadPDF = () => {
@@ -74,10 +88,19 @@ const Header = () => {
                     <FiEdit2 className={`icon-edit-title ${edit ? 'show-icon' : ''}`} onClick={handleEditChange}/>
                 </div>
                 
-
-                <div className="tooltip-container">
-                    <CgSoftwareDownload className="icon" onClick={handleDownloadPDF} />
-                    <span className="tooltip-text download-button">Download</span>
+                <div className='action-icons'>
+                    <div className="tooltip-container">
+                        <HiOutlineSave className="icon" onClick={handleSaveFile}/>
+                        <span className="tooltip-text save-button">Salvar</span>
+                    </div>
+                    <div className="tooltip-container">
+                        <CgSoftwareUpload  className="icon"/>
+                        <span className="tooltip-text upload-button">Upload</span>
+                    </div>
+                    <div className="tooltip-container">
+                        <CgSoftwareDownload className="icon" onClick={handleDownloadPDF} />
+                        <span className="tooltip-text download-button">Download</span>
+                    </div>
                 </div>
             </header>
         </div>

@@ -18,7 +18,7 @@ body{
   background-color: #222222;
 }
 
-hr{
+.edit-area hr{
   color: #222222;
   border: none;
   width: 3px;

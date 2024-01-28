@@ -5,6 +5,23 @@
     --text-color: #f0f0f0;
   }
 
+.custom-scroll::-webkit-scrollbar {
+    width: 8px; /* largura da barra de rolagem */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent; /* cor de fundo da barra de rolagem */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #888; /* cor da alça da barra de rolagem */
+    border-radius: 5px; /* borda arredondada */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555; /* cor da alça da barra de rolagem ao passar o mouse */
+}
+
   .header header{
     color: var(--text-color);
     display: flex;
@@ -15,6 +32,12 @@
 
 .icon{
   cursor: pointer;
+}
+
+.action-icons{
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
 }
 
 .tooltip-container {
@@ -43,8 +66,17 @@
 .tooltip-text.download-button{
   left: calc(50% - 8px);
 }
+
 .tooltip-text.sidebar-button{
   left: calc(50% + 8px);
+}
+
+.tooltip-text.upload-button{
+  left: calc(50% );
+}
+
+.tooltip-text.save-button{
+  left: calc(50%);
 }
 
 .title-file{
@@ -87,7 +119,7 @@
 .preview-container{
   width: 50%; 
   max-width: 21cm;
-  height: 100vh; 
+  height: 93vh; 
   padding: 20px; 
   background-color: var(--secondary-color); 
   color: var(--text-color); 
@@ -97,16 +129,9 @@
   font-size: 16px;
 }
 
-.editor-container {
-  width: 50%;
-  height: 100vh;
-  float: left;
-  padding: 10px 10px;
-}
-
   .text-editor {
     width: 50%;
-    height: 100vh;
+    height: 90vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
     background-color: var(--secondary-color);
