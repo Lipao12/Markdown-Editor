@@ -152,6 +152,7 @@
     left: 0;
     transition: transform 0.3s ease;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
 }
 
 .hide-sidebar {
@@ -166,6 +167,13 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #444;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-body{
+  display: flex;
+  flex-direction: column;
 }
 
 .links {
@@ -201,6 +209,12 @@
 
 .close-button:hover {
   color: #ccc;
+}
+
+.hr-sideber {
+  background-color: antiquewhite;
+  height: 1px;
+  border: none;
 }
 
   @media (max-width: 768px) {

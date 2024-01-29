@@ -24,7 +24,7 @@ const SideBar = () => {
 
     return (
         <div>
-            <aside className={`sidebar ${showSidebar ? '' : 'hide-sidebar'}`}>
+            <aside className={`custom-scroll sidebar ${showSidebar ? '' : 'hide-sidebar'}`}>
                 <div className={'sidebar-header'}>
                     <h2>Textos</h2>
                     <div>
@@ -36,11 +36,19 @@ const SideBar = () => {
                         </button>
                     </div>
                 </div>
-                <ul className='links'>
-                    {txts.map((text) => {3
-                        return <li key={text.id}><a onClick={() => handleItemClick(text.id)}>{text.title}</a></li>;
-                    })}
-                </ul>
+                <div>
+                    <ul className='links'>
+                        {txts.map((text) => {
+                            return (
+                                <>
+                                    <li key={text.id}><a onClick={() => handleItemClick(text.id)}>{text.title}</a></li>
+                                    <hr className='hr-sideber'/>
+                                </>
+                            );
+                        })}
+                    </ul>
+                </div>
+                
             </aside>
         </div>
     );
