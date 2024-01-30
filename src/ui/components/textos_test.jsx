@@ -113,6 +113,91 @@ E assim, o mistério da noite estrelada foi resolvido, mas a jornada dos aventur
 
 `
 
+const text4 = `
+# Exemplo de Documento Markdown
+
+Este é um exemplo de documento Markdown que demonstra diversas funcionalidades deste formato de marcação.
+
+## Títulos
+
+Os títulos podem ser criados utilizando a hashtag (#) seguida pelo texto do título. Quanto mais hashtags, menor é o nível do título.
+
+## Estilos de Texto
+
+É possível aplicar *itálico* utilizando asteriscos ou underscores, **negrito** utilizando dois asteriscos ou underscores, e ***itálico e negrito*** utilizando três asteriscos ou underscores.
+
+## Listas
+
+### Lista Não Ordenada
+
+- Item 1
+- Item 2
+- Item 3
+
+### Lista Ordenada
+
+1. Primeiro item
+2. Segundo item
+3. Terceiro item
+
+## Links
+
+É possível adicionar [links para páginas web](https://www.example.com) utilizando colchetes para o texto âncora seguido da URL entre parênteses.
+
+## Imagens
+
+Também é possível incluir imagens em um documento Markdown.
+
+![Texto alternativo](https://via.placeholder.com/150)
+
+## Código
+
+Você pode destacar trechos de código com a marcação de código inline usando crases, por exemplo, \`print("Hello, world!")\`, ou blocos de código utilizando três crases:
+
+\`\`\`python
+def greet():
+    print("Hello, world!")
+
+greet()
+\`\`\`
+
+## Citações
+
+> Esta é uma citação. Você pode utilizá-la para destacar informações importantes.
+
+## Linhas Horizontais
+
+---
+É possível adicionar linhas horizontais para separar seções.
+
+## Tabelas
+
+| Nome     | Idade |
+|----------|-------|
+| João     | 30    |
+| Maria    | 25    |
+| Pedro    | 35    |
+
+## Escapando Caracteres
+
+Você pode escapar caracteres utilizando a barra invertida, como \*isso\*.
+
+## Ênfase de Citações
+
+Para enfatizar partes de um texto que você está citando, você pode usar o caractere > antes do texto.
+
+## Blocos de Notas
+
+> **Nota:** Este é um bloco de nota para destacar informações importantes.
+
+## Checkboxes
+
+- [x] Tarefa concluída
+- [ ] Tarefa pendente
+
+Este foi um exemplo básico das funcionalidades do Markdown. Espero que seja útil!
+`
+
 const texts = [
     {
         id: 1,
@@ -128,6 +213,31 @@ const texts = [
         id: 3,
         title: "A Saga dos Guardiões Estelares: Em Busca da Ordem Cósmica",
         texto: text3,
+    },
+    {
+        id: 4,
+        title: "Texto 4",
+        texto: text3,
+    },
+    {
+        id: 5,
+        title: "Texto 5",
+        texto: text3,
+    },
+    {
+        id: 6,
+        title: "Texto 6",
+        texto: text3,
+    },
+    {
+        id: 7,
+        title: "MarkDown Funcionalidades",
+        texto: text4,
+    },
+    {
+        id: 8,
+        title: "MarkDown Funcionalidades",
+        texto: text4,
     },
 ];
 

@@ -38,11 +38,11 @@ const SideBar = () => {
                 </div>
                 <div>
                     <ul className='links'>
-                        {txts.map((text) => {
+                        {txts.map((text, index) => {
                             return (
                                 <>
                                     <li key={text.id}><a onClick={() => handleItemClick(text.id)}>{text.title}</a></li>
-                                    <hr className='hr-sideber'/>
+                                    {index!=(txts.length-1) && <hr className='hr-sideber'/>}
                                 </>
                             );
                         })}

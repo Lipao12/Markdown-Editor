@@ -1,0 +1,7 @@
+.preview-container{
+    width: 50%; /* Defina a largura do contêiner do preview */
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto; /* Adicione overflow:auto para permitir rolagem se o conteúdo for maior que o contêiner */
+    float: right;
+}

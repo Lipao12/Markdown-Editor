@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CgMenu, CgSoftwareDownload, CgSoftwareUpload } from "react-icons/cg";
 import { FiEdit2 } from "react-icons/fi";
 import { HiOutlineSave } from "react-icons/hi";
+import { ToastContainer, toast } from 'react-toastify';
 import { textContext } from '../../context/TextContext';
 import '../style/style.css';
 
@@ -38,29 +39,36 @@ const Header = () => {
     }
 
     const handleDownloadPDF = () => {
-        const previewContainer = document.getElementById('preview-container');
-
-        html2canvas(previewContainer).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF();
-            const imgWidth = 210;
-            const pageHeight = 297;
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-            let heightLeft = imgHeight;
-            let position = 0;
-
-            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-
-            while (heightLeft >= 0) {
-                position = heightLeft - imgHeight;
-                pdf.addPage();
+        try{
+            
+            const previewContainer = document.getElementById('preview-container');
+    
+            html2canvas(previewContainer).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                const imgWidth = 210;
+                const pageHeight = 297;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                let position = 0;
+    
                 pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
-            }
-
-            pdf.save('download.pdf');
-        });
+    
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+    
+                pdf.save(objTextRaw.title);
+            });
+        }catch(e){
+            setTimeout(() => {
+                toast.error('Erro ao realizar o download do texto!');
+            }, 1000);
+        }
     };
 
     return (
@@ -103,6 +111,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
+            <ToastContainer />
         </div>
     );
 };
