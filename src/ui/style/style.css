@@ -4,47 +4,134 @@
     --accent-color: #ff9800;
     --text-color: #f0f0f0;
   }
-  
-  .editor-container {
-    width: 50%;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    overflow: auto;
-    float: left;
+
+.custom-scroll::-webkit-scrollbar {
+    width: 8px; /* largura da barra de rolagem */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent; /* cor de fundo da barra de rolagem */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #888; /* cor da alça da barra de rolagem */
+    border-radius: 5px; /* borda arredondada */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555; /* cor da alça da barra de rolagem ao passar o mouse */
+}
+
+  .header header{
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 20px;
   }
 
-
-  .preview-container{
-    width: 50%;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    background-color: #222222;
-    color: var(--text-color);
-    overflow: auto;
-    float: right;
-    padding: 10px;
-}
-  .preview-txt{
-    width: 100%;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    padding: 10px 5px;
-    float: right;
+.icon{
+  cursor: pointer;
 }
 
-.preview-header {
-  color: #fff; /* Cor do texto do cabeçalho */
-  padding: 10px; /* Espaçamento interno */
-  padding-bottom: 0;
+.action-icons{
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
 }
-  
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-text {
+  position: absolute;
+  top: calc(100% + 5px);
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white; 
+  padding: 5px; 
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  pointer-events: none; 
+  white-space: nowrap;
+}
+
+.tooltip-container:hover .tooltip-text {
+  opacity: 1;
+}
+
+.tooltip-text.download-button{
+  left: calc(50% - 8px);
+}
+
+.tooltip-text.sidebar-button{
+  left: calc(50% + 8px);
+}
+
+.tooltip-text.upload-button{
+  left: calc(50% );
+}
+
+.tooltip-text.save-button{
+  left: calc(50%);
+}
+
+.title-file{
+  display: flex;
+  flex-direction: row;
+}
+
+.input-edit {
+  border: none;
+  background-color: transparent;
+  color: inherit; /* Isso faz com que o texto dentro do input tenha a mesma cor do texto do elemento pai */
+  font-size: inherit;
+  font-weight: inherit; 
+  font-family: inherit; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+  outline: none;
+}
+
+.input-edit.show-edit{
+  border-bottom: 2px solid #333;
+}
+
+.icon-edit-title{
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.title-file:hover .icon-edit-title {
+  opacity: 1;
+}
+
+.icon-edit-title.show-icon{
+  opacity: 1;
+}
+
+.preview-container{
+  width: 50%; 
+  max-width: 21cm;
+  height: 93vh; 
+  padding: 20px; 
+  background-color: var(--secondary-color); 
+  color: var(--text-color); 
+  box-sizing: border-box; 
+  overflow: auto; 
+  float: right;
+  font-size: 16px;
+}
+
   .text-editor {
-    width: 100vh;
-    height: 100vh;
+    width: 50%;
+    height: 90vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
     background-color: var(--secondary-color);
@@ -55,7 +142,82 @@
     resize: none;
     padding: 10px;
   }
-  
+
+  .sidebar {
+    width: 200px; 
+    height: 100vh;
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
+}
+
+.hide-sidebar {
+    transform: translateX(-200px); /* move a barra lateral para fora da tela */
+}
+
+.sidebar-header {
+  background-color: #222222;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #444;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links li {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.links li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.links li a:hover {
+    background-color: #555;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-button:hover {
+  color: #ccc;
+}
+
+.hr-sideber {
+  background-color: antiquewhite;
+  height: 1px;
+  border: none;
+}
+
   @media (max-width: 768px) {
     .editor-container, .preview-container {
         width: 100%;
